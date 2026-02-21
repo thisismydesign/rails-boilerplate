@@ -13,7 +13,7 @@ services:
       DB_HOST: db
     volumes:
       - bundle_cache:/usr/local/bundle
-      - .:/app
+      - .:/workspaces/rails-docker-boilerplate:cached
 
   db:
     image: postgres:16.1-alpine

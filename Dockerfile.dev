@@ -5,7 +5,7 @@ ARG RUBY_VERSION=4.0.1
 FROM docker.io/library/ruby:$RUBY_VERSION-slim
 
 # Rails app lives here
-WORKDIR /app
+WORKDIR /workspaces/rails-docker-boilerplate
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
