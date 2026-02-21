@@ -4,6 +4,10 @@
 ARG RUBY_VERSION=4.0.1
 FROM docker.io/library/ruby:$RUBY_VERSION-slim
 
+# Ensure binding is always 0.0.0.0
+# Binds the server to all IP addresses of the container, so it can be accessed from outside the container.
+ENV BINDING="0.0.0.0"
+
 # Rails app lives here
 WORKDIR /workspaces/rails-docker-boilerplate
 
