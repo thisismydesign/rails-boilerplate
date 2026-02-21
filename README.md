@@ -4,19 +4,26 @@
 
 ## Usage
 
+### Init app
+
 ```sh
 docker compose build
 # Edit .railsrc to customize the rails app
 # Create new rails app
 docker compose run --rm web bash -c "bundle && rails new . --force --rc=.railsrc"
+```
 
+### Run app
+
+```sh
 # Run app
 docker compose up -d
 docker compose exec web bin/setup --skip-server
 docker compose exec web bin/dev -b 0.0.0.0
 ```
 
-Reset (start over) via
+### Start over
+
 ```sh
 git reset --hard HEAD
 git clean -fdx
