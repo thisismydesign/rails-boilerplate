@@ -1,8 +1,12 @@
 # Rails Docker boilerplate
 
-#### A boilerplate that sets the ground for Rails development with Docker
+#### A boilerplate that sets the ground for Rails development with Docker and Agents.
 
-## Usage
+## Agent usage
+
+`/new-rails-project`
+
+## Manual usage
 
 ### Init app
 
