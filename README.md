@@ -1,4 +1,4 @@
-# Rails Docker boilerplate
+# Rails Boilerplate
 
 #### A boilerplate that sets the ground for Rails development with Docker and Agents.
 
