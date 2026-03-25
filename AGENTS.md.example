@@ -8,54 +8,12 @@ This file provides guidance to AI coding agents working with this repository.
 
 ## Instructions
 
-- Document new instructions and learnings in `AGENTS.md` file(s) to help future agents, but keep it very concise.
-- No redundant comments. Code should be readable as-is. Only leave comments if it explains something complex/unexpected.
-
-## Development Commands
-
-You're in a dev container.
-
-### Setup and Server
-
-```bash
-bin/setup --skip-server
-bin/dev
-```
-
-Development URL: http://localhost:3000
-
-### Testing
-
-```bash
-bundle exec rspec path/to/spec_file.rb      # Run single test file
-bundle exec rspec path/to/spec_file.rb:42   # Run single test at line
-```
-
-### Lint
-
-```bash
-bundle exec rubocop path/to/file.rb         # Lint single file
-bundle exec rubocop -a path/to/file.rb      # Lint with auto-fix
-```
+- SHOULD document new instructions and learnings in `AGENTS.md` file(s) to help future agents.
+- MUST NOT write redundant comments. Code should be readable as-is. MAY leave comments if it explains something complex/unexpected.
 
 ## Architecture
 
 - Rails 8
 - Background jobs: solid_queue & ActiveJob
 - Code style: RuboCop (see `.rubocop.yml`)
-
-## Philosophy
-
-The project follows vanilla Rails and DDD conventions inspired by the 37signals approach described in https://dev.37signals.com/vanilla-rails-is-plenty/.
-
-- **Rich domain models, no services** -- business logic lives in models, not service objects or interactors. Controllers invoke models directly. When justified, use form objects or POROs with `ActiveModel::Model`, but don't treat them as special architectural artifacts.
-- **Everything is CRUD** -- custom actions become new resources. Never add non-RESTful actions to controllers. E.g. `resource :closure` instead of `post :close`.
-- **State as records** -- represent state changes as separate models (Closure, Publication) rather than boolean columns.
-- **Thin controllers** -- controllers set up the resource, call model methods, and respond. No business logic in controllers.
-- **Concerns for organization** -- split model behavior into concerns named as adjectives (Closeable, Assignable, Searchable). Delegate complex work to dedicated objects behind high-level model APIs.
-
-## Code Style
-
-- Order methods by invocation order (caller above callees).
-- Only use `!` on methods that have a corresponding non-bang counterpart. Don't use `!` to flag destructive actions.
-- Use `_later` suffix for methods that enqueue a background job, and `_now` for the synchronous counterpart the job calls.
+- Testing: Rspec
