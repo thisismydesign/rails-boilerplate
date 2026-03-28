@@ -11,7 +11,7 @@ ENV BINDING="0.0.0.0"
 ENV RUBYOPT="--enable-frozen-string-literal"
 
 # Rails app lives here
-WORKDIR /workspaces/rails-docker-boilerplate
+WORKDIR /workspaces/rails-boilerplate
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \

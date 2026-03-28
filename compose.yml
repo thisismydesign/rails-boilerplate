@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    image: thisismydesign/rails-docker-boilerplate:local
+    image: thisismydesign/rails-boilerplate:local
     command: sleep infinity
     ports:
       - 3000:3000
@@ -13,7 +13,7 @@ services:
       DB_HOST: db
     volumes:
       - bundle_cache:/usr/local/bundle
-      - .:/workspaces/rails-docker-boilerplate:cached
+      - .:/workspaces/rails-boilerplate:cached
 
   db:
     image: postgres:16.1-alpine
